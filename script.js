@@ -4,6 +4,7 @@ fillColor = document.querySelector("#fill-color"),
 sizeSlider = document.querySelector("#size-slider"),
 colorBtns = document.querySelectorAll(".colors .option"),
 colorPicker = document.querySelector("#color-picker"),
+clearCanvasBtn = document.querySelector('#clear-canvas')
 ctx = canvas.getContext("2d");
 
 // global variables with default values
@@ -106,3 +107,7 @@ colorPicker.addEventListener("change", () => {
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);
+
+clearCanvasBtn.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+})
