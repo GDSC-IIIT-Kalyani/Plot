@@ -82,6 +82,11 @@ toolBtns.forEach(btn => {
         document.querySelector(".options .active").classList.remove("active");
         btn.classList.add("active");
         selectedTool = btn.id;
+        if(selectedTool == "eraser"){
+            canvas.style.cursor = "crosshair";
+        }else{
+        canvas.style.cursor = 'crosshair'
+        }
         console.log(btn.id);
     });
 });
@@ -103,6 +108,21 @@ colorPicker.addEventListener("change", () => {
      colorPicker.parentElement.style.background = colorPicker.value;
      colorPicker.parentElement.click();
 });
+
+document.querySelector('.save-img').addEventListener("click", ()=>{
+    let e = document.getElementById("fileFormat");
+    let selectedFormat = e.options[e.selectedIndex].text;
+    const img    = canvas.toDataURL(`image/${selectedFormat}`)
+    downloadImage(img, `draw.${selectedFormat}`);
+})
+
+function downloadImage(data, filename = 'untitled.jpeg') {
+    var a = document.createElement('a');
+    a.href = data;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+}
 
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);

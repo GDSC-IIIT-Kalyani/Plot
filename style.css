@@ -24,6 +24,11 @@ section {
     border-radius: 5px;
 } 
 
+.title{
+text-decoration: underline;
+text-decoration-thickness: 0.5px;
+}
+
 .tools-board {
     width: 200px;
     padding: 15px 22px 0;
@@ -162,6 +167,12 @@ section {
 }
 
 .drawing-board canvas {
+    cursor: crosshair;
     width: 100%;
     height: 100%;
+}
+
+.selectFormat {
+    width: 100%; 
+    margin-bottom: 4px;
 }
