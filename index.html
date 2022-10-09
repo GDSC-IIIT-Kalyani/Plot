@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./img/blog.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <head>
     <script src="script.js" defer></script>
@@ -15,6 +16,7 @@
         <section class="tools-board">
             <div class="row">
                 <label class="title">Shapes</label>
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
                 <ul class="options">
                     <li class="option tool" id="rectangle"><i class="fa-solid fa-square"></i>Rectangle</li>
                     <li class="option tool" id="circle"><i class="fa-solid fa-circle"></i>Circle</li>
@@ -24,10 +26,12 @@
                         <label for="fill-color">Fill color</label>
                     </li>
                 </ul>
+                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
             </div>
 
             <div class="row">
                 <label class="title">Options</label>
+                <i class="fa fa-minus-circle"></i>
                 <ul class="options">
                     <li class="option active tool" id="brush"><i class="fa-solid fa-paintbrush"></i>Brush</li>
                     <li class="option tool" id="eraser"><i class="fa-solid fa-eraser"></i>Eraser</li>
@@ -35,6 +39,7 @@
                         <input type="range" id="size-slider" min = "1" max = "30" value ="5">
                     </li>
                 </ul>
+                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
             </div>
 
 
