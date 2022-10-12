@@ -1,65 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
-    <title>Plot</title>
-</head>
-<body>
-    <div class="container">
-        <section class="tools-board">
-            <div class="row">
-                <label class="title">Shapes</label>
-                <ul class="options">
-                    <li class="option tool" id="rectangle">Rectangle</li>
-                    <li class="option tool" id="circle">Circle</li>
-                    <li class="option tool" id="triangle">Triangle</li>
-                    <li class="option">
-                        <input type="checkbox" id="fill-color">
-                        <label for="fill-color">Fill color</label>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="row">
-                <label class="title">Options</label>
-                <ul class="options">
-                    <li class="option active tool" id="brush">Brush</li>
-                    <li class="option tool" id="eraser">Eraser</li>
-                    <li class="option">
-                        <input type="range" id="size-slider" min = "1" max = "30" value ="5">
-                    </li>
-                </ul>
-            </div>
-
-            <div class="row colors">
-                <label class="title">Colors</label>
-                <ul class="options">
-                    <li class="option"></li>
-                    <li class="option selected"></li>
-                    <li class="option"></li>
-                    <li class="option"></li>
-                    <li class="option">
-                        <input type="color" id="color-picker" value="#04a9f7">
-                    </li>
-                </ul>
-            </div>
-
-            <div class="row buttons">
-                <button class="clear-canvas" id="clear-canvas">Clear Canvas</button>
-                <select class="selectFormat" name="fileFormat" id="fileFormat">
-                    <option value="png">png</option>
-                    <option value="jpg">jpg</option>
-                </select>
-                <button class="save-img">Save Image</button>
-            </div>
-        </section>
-        <section class="drawing-board">
-            <canvas width="810" height="564"></canvas>
-        </section>
-    </div>
-</body>
+  <head>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>🎨 Plot</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <!-- scripts -->
+    <script src="./assets/js/utils.js" defer></script>
+    <script src="./assets/js/app.js" defer></script>
+    <script src="./assets/js/index.js" defer></script>
+  </head>
+  <body>
+    <!-- top action bar -->
+    <section id="action-bar">
+      <!-- group 1: tools -->
+      <div class="action-group">
+        <div id="actions">
+          <div class="action">
+            <button id="clear-canvas">clear canvas</button>
+          </div>
+          <div class="action">
+            <select class="selectFormat" name="fileFormat" id="fileFormat">
+              <option value="png">.png</option>
+              <option value="jpg">.jpg</option>
+            </select>
+            <button id="save-canvas">Save Image</button>
+          </div>
+        </div>
+      </div>
+      <!-- group 2: tools -->
+      <div class="action-group">
+        <!-- tools -->
+        <div class="tools">
+          <!-- pencil -->
+          <div class="tool active" id="pencil">
+            <img src="./assets/images/pencil.png" alt="pencil" />
+          </div>
+          <!-- brush -->
+          <div class="tool" id="brush">
+            <img src="./assets/images/brush.png" alt="brush" />
+          </div>
+          <!-- eraser -->
+          <!-- TODO: https://github.com/GDSC-IIIT-Kalyani/Plot/issues/17 -->
+          <div class="tool" id="eraser">
+            <img src="./assets/images/eraser.png" alt="eraser" />
+          </div>
+          <!-- bucket -->
+          <div class="tool" id="bucket">
+            <img src="./assets/images/bucket.svg" alt="bucket" />
+          </div>
+        </div>
+        <!-- group title -->
+        <p class="title">tools</p>
+      </div>
+      <!-- group 3: shapes -->
+      <div class="action-group">
+        <!-- shapes -->
+        <div class="tools">
+          <!-- rectangle -->
+          <div class="tool" id="rectangle">
+            <img src="./assets/images/rectangle.svg" alt="rectangle" />
+          </div>
+          <!-- circle -->
+          <div class="tool" id="circle">
+            <img src="./assets/images/circle.svg" alt="circle" />
+          </div>
+          <!-- triangle -->
+          <div class="tool" id="triangle">
+            <img src="./assets/images/triangle.svg" alt="triangle" />
+          </div>
+        </div>
+        <!-- group title -->
+        <p class="title">shapes</p>
+      </div>
+      <!-- group 4: colors -->
+      <div class="action-group">
+        <!-- colors -->
+        <div id="colors-wrapper">
+          <div id="colors">
+            <div class="color"></div>
+            <div class="color selected"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+          </div>
+          <div id="color-picker-wrapper">
+            <input type="color" id="color-picker" value="#04a9f7" />
+            <label for="color-picker">pick</label>
+          </div>
+        </div>
+        <!-- group title -->
+        <p class="title">colors</p>
+      </div>
+      <div class="action-group">
+        <input
+          type="range"
+          id="brush-width-slider"
+          min="1"
+          max="30"
+          value="2"
+          disabled
+        />
+        <!-- group title -->
+        <p class="title">thickness</p>
+      </div>
+    </section>
+    <!-- drawing-board -->
+    <section id="drawing-board">
+      <canvas></canvas>
+    </section>
+  </body>
 </html>

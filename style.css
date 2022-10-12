@@ -1,117 +1,139 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-body {
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background: #0075ff;
-}
-
-.container {
+  }
+  
+  .container {
     display: flex;
     width: 100%;
-    max-width: 1050px;    
-}
-
-section {
+    max-width: 1050px;
+  }
+  
+  section {
     background: #fff;
     border-radius: 5px;
-} 
-
-.title{
-text-decoration: underline;
-text-decoration-thickness: 0.5px;
-}
-
-.tools-board {
+  }
+  
+  .title{
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  }
+  
+  .tools-board {
     width: 200px;
     padding: 15px 22px 0;
     margin-right: 10px;
     /* margin-left: -100px; */
-}
-
-.tools-board .row {
+  }
+  
+  .tools-board .row {
     margin-bottom: 20px;
-}
-
-.row .options {
+  }
+  
+  .row .title {
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .row .fa {
+    display: none;
+  }
+  
+  .row .options {
     list-style: none;
     margin: 10px 0 0 5px;
-}
-
-.row .options .option {
+  }
+  
+  .fa-solid {
+      margin-right: 10px;
+  
+  }
+  
+  .tool:hover{
+      font-size: 120%;
+      color: #0075ff;
+      font-weight: bolder;
+  }
+  
+  .row .options .option {
     display: flex;
     cursor: pointer;
     align-items: center;
     margin-bottom: 10px;
-}
-
-.option :where(span, label) {
+  }
+  
+  .option :where(span, label) {
     color: black;
     padding-left: 10px;
-}
-
-.option:is(:hover, .active) :where(span, label) {
+  }
+  
+  .option:is(:hover, .active) :where(span, label) {
     color: #0075ff;
-}
-
-.option #fill-color {
+  }
+  
+  .option #fill-color {
     height: 14px;
     width: 14px;
-}
-
-#fill-color:checked ~ label{
+  }
+  
+  #fill-color:checked ~ label {
     color: #0075ff;
-}
-
-.option #size-slider {
+  }
+  
+  .option #size-slider {
     width: 100%;
     height: 5px;
     margin-top: 10px;
-}
-
-.colors .options{
+  }
+  
+  .colors .options {
     display: flex;
-    justify-content: space-between;
-}
-
-.colors .option {
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+  }
+  
+  .colors .option {
     height: 20px;
     width: 20px;
     background: black;
     border-radius: 50%;
-    margin-top: 3px ;
+    margin-top: 3px;
+    margin-right: 5px;
     position: relative;
-}
-
-.colors  .option:nth-child(1){
+  }
+  
+  .colors .option:nth-child(1) {
     background-color: #fff;
     border: 1px solid grey;
-}
-
-.colors  .option:nth-child(2){
+  }
+  
+  .colors .option:nth-child(2) {
     background-color: #000;
-}
-
-.colors  .option:nth-child(3){
+  }
+  
+  .colors .option:nth-child(3) {
     background-color: rgb(254, 2, 2);
-}
-
-.colors  .option:nth-child(4){
+  }
+  
+  .colors .option:nth-child(4) {
     background-color: rgb(5, 254, 1);
-}
-
-.colors  .option:nth-child(5){
+  }
+  
+  .colors .option:nth-child(5) {
     background-color: rgb(0, 144, 254);
-}
-
-.colors .option.selected::before {
+  }
+  
+  .colors .option.selected::before {
     position: absolute;
     content: "";
     top: 10%;
@@ -122,18 +144,23 @@ text-decoration-thickness: 0.5px;
     border-radius: inherit;
     border: 2px solid #fff;
     transition: translate(-50%, -50%);
-}
-
-.colors .option:first-child:hover::before{
+  }
+  
+  .colors .option:first-child:hover::before {
     border-color: #ccc;
-}
-
-.option #color-picker {
+  }
+  
+  .option #color-picker {
     opacity: 0;
     cursor: pointer;
-}
-
-.buttons button {
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .buttons button {
     width: 100%;
     color: #fff;
     border: none;
@@ -144,35 +171,113 @@ text-decoration-thickness: 0.5px;
     background: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.buttons .clear-canvas {
+  }
+  
+  .buttons .clear-canvas {
     color: black;
     border: 1px solid black;
     transition: all 0.3s ease;
-}
-
-.clear-canvas:hover{
+  }
+  
+  .clear-canvas:hover {
     color: #fff;
     background: grey;
-}
-
-.buttons .save-img {
+  }
+  
+  .buttons .save-img {
     background: #0075ff;
     border: 1px solid #0075ff;
-}
-
-.drawing-board {
+  }
+  
+  .drawing-board {
     flex: 1;
-}
-
-.drawing-board canvas {
-    cursor: crosshair;
+  }
+  
+  .drawing-board canvas {
     width: 100%;
     height: 100%;
-}
-
-.selectFormat {
-    width: 100%; 
-    margin-bottom: 4px;
-}
+    cursor: crosshair;
+  }
+  
+  
+  @media (max-width: 700px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 80vh;
+    }
+  
+    .tools-board {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      flex-wrap: wrap;
+      /* align-content: flex-end; */
+      position: relative;
+      margin-bottom: 8px;
+      padding: 15px 12px 0;
+    }
+  
+    .row {
+      margin-right: 10px;
+      padding: 3px 5px;
+      position: relative;
+    }
+  
+    .row .options {
+      display: none;
+      /* position: absolute; */
+      margin: 9px 0 0 7px;
+      transition: 1s;
+    }
+    .row .options .option {
+      padding: 3px 2px;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+    .row1 .options li:hover,
+    .row2 .options li:hover {
+      background-color: #0075ff;
+      color: #fff;
+    }
+    .option:is(:hover, .active) :where(span, label) {
+      background-color: #0075ff;
+      color: #fff;
+    }
+  
+    #fill-color:checked ~ label {
+      color: #000;
+    }
+  
+    .colors {
+      width: 100%;
+    }
+    .colors .options .option {
+      margin-right: 5px;
+    }
+    .row .fa {
+      display: inline;
+    }
+    .row .fa-minus-circle {
+      display: none;
+    }
+  
+    .buttons {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0;
+      /* /* position: relative; */
+    }
+    .buttons button {
+      margin-right: 3px;
+      padding: 11px 3px;
+      font-size: 0.7rem;
+      margin-bottom: 10px;
+    }
+  }
+  
+  
+  .selectFormat {
+      width: 100%; 
+      margin-bottom: 4px;
+  }

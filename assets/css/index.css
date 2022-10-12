@@ -1,0 +1,213 @@
+/*
+Author: chankruze (chankruze@gmail.com)
+Created: Sat Oct 08 2022 23:58:54 GMT+0530 (India Standard Time)
+
+Copyright (c) geekofia 2022 and beyond
+*/
+
+:root {
+  --body-bg: #ffffff;
+  --border: #d4d4d4;
+  --action-bar-bg: #f4f4f4;
+  --active-bg: #00b7ff;
+  --action-btn-bg: #0075ff;
+  --action-btn-bg-hover: #0066db;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Courier New", Courier, monospace; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background: var(--body-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* action bar */
+
+#action-bar {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--action-bar-bg);
+  white-space: nowrap;
+  overflow-x: auto;
+  user-select: none;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  border: 0.1px solid var(--border);
+  padding: 0.25rem;
+}
+
+.action-group .title {
+  margin-top: auto;
+  border-top: 0.1px solid var(--border);
+  text-align: center;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
+#actions {
+  display: flex;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+#actions .action {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+#actions .action button {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem;
+  background: var(--action-btn-bg);
+  color: #fff;
+  text-transform: capitalize;
+  height: 100%;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+#actions .action button:hover {
+  background: var(--action-btn-bg-hover);
+}
+
+#actions .action select {
+  padding: 0.125rem;
+  outline: none;
+  border: 0;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.25rem;
+}
+
+.tools .tool {
+  height: 1.7rem;
+  width: 1.75rem;
+  padding: 0.125rem;
+  /* background: red; */
+}
+
+.tools .tool.active {
+  background: var(--active-bg);
+}
+
+.tools .tool img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* colors */
+#colors {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 0.25rem;
+}
+
+#colors .color.selected {
+  border: 1px solid var(--active-bg);
+}
+
+#colors-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#colors .color {
+  height: 20px;
+  width: 20px;
+  background: #ededed;
+  border: var(--border);
+  position: relative;
+}
+
+#color-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#color-picker-wrapper label {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.25rem;
+}
+
+#colors .color {
+  border: 1px solid var(--border);
+}
+
+#colors .color:nth-child(1) {
+  background-color: #fff;
+}
+
+#colors .color:nth-child(2) {
+  background-color: #000;
+}
+
+#colors .color:nth-child(3) {
+  background-color: rgb(254, 2, 2);
+}
+
+#colors .color:nth-child(4) {
+  background-color: rgb(5, 254, 1);
+}
+
+#colors .color:nth-child(5) {
+  background-color: rgb(0, 144, 254);
+}
+
+/* drawing board */
+
+#drawing-board {
+  background: var(--body-bg);
+  display: flex;
+  flex: 1;
+}
+
+canvas {
+  cursor: url("../images/pencil.png"), auto;
+}
+
+canvas#pencil {
+  cursor: url("../images/pencil.png"), auto;
+}
+
+canvas#brush {
+  cursor: url("../images/brush.png"), auto;
+}
+
+canvas#eraser {
+  cursor: url("../images/eraser.png"), auto;
+}
+
+canvas#bucket {
+  cursor: url("../images/bucket.png"), auto;
+}
+
+canvas#rectangle,
+canvas#triangle,
+canvas#circle {
+  cursor: crosshair;
+}
