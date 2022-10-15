@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+ version="1.1"
+ viewBox="-800 -800 1600 1600"
+ height="999" width="999"
+ xmlns="http://www.w3.org/2000/svg">
+<title>Regular Pentagon</title>
+ <path fill="none" stroke="blue" stroke-width="10"
+   d="m754,0 L233,717.1
+ -610,443.19 -610,-443.19
+ 233,-717.1 z" />
+</svg>
